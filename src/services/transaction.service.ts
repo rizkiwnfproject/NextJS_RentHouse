@@ -16,6 +16,12 @@ export const transactionApi = apiSlice.injectEndpoints({
         body: payload,
       }),
     }),
+    getTransactions: builder.query({
+      query: () => ({
+        url: `/transaction`,
+        method: "GET",
+      }),
+    }),
     getDetailTransactions: builder.query({
       query: (id) => ({
         url: `/transaction/${id}`,
@@ -28,5 +34,6 @@ export const transactionApi = apiSlice.injectEndpoints({
 export const {
   useCheckAvailabilityMutation,
   useTransactionMutation,
+  useGetTransactionsQuery,
   useGetDetailTransactionsQuery,
 } = transactionApi;
